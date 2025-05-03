@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
   "ingredients": [
     "minecraft:heart_of_the_sea",
     "ducksdelights:haunted_steel_water_bucket",

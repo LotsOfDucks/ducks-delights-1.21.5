@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
   "ingredients": [
     "minecraft:nether_star",
     "ducksdelights:haunted_steel_lava_bucket",

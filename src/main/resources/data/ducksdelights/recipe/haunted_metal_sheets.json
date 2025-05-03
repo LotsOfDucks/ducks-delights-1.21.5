@@ -1,6 +1,5 @@
 {
   "type": "minecraft:smelting",
-  "catergory": "misc",
   "ingredient": "ducksdelights:haunted_metal_scrap",
   "result": {
     "id": "ducksdelights:haunted_metal_sheets"
