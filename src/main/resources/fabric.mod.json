@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "ducksdelights",
+	"version": "${0.1}",
+	"name": "Ducks' Delights",
+	"description": "Welcome to Ducks' Delights! This is a mod compiling a bunch of random additions I personally want.",
+	"authors": [
+		"Lots Of Ducks :D"
+	],
+	"contact": {
+		"homepage": "none atm",
+		"sources": "https://github.com/LotsOfDucks/Ducks-Delight-Indev-1.21.4"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/ducksdelights/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"lod.ducksdelights.DucksDelights"
+		],
+		"fabric-datagen": [
+			"lod.ducksdelights.DucksDelightsDataGenerator"
+		],
+		"client": [
+			"lod.ducksdelights.DucksDelightsClient"
+		]
+	},
+	"mixins": [
+		"ducksdelights.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.5",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "Myewphi's Mods idk"
+	}
+}
