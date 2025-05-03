@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "ducksdelights:haunted_steel"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "ducksdelights:haunted_steel"
+      }
+    ]
+  }
+}

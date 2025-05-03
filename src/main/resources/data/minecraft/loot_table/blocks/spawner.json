@@ -7,12 +7,12 @@
         {
           "type": "minecraft:item",
           "name": "ducksdelights:mote_of_creation",
-          "weight": 10
+          "weight": 5
         },
         {
           "type": "minecraft:item",
           "name": "ducksdelights:haunted_metal_scrap",
-          "weight": 65
+          "weight": 70
         },
         {
           "type": "minecraft:empty",
