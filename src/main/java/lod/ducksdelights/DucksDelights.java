@@ -2,11 +2,7 @@ package lod.ducksdelights;
 
 import lod.ducksdelights.block.ModBlocks;
 import lod.ducksdelights.entity.ModBlockEntityTypes;
-import lod.ducksdelights.item.ModConsumableComponents;
-import lod.ducksdelights.item.ModFoodComponents;
-import lod.ducksdelights.item.ModItemGroups;
-import lod.ducksdelights.item.ModItems;
-import lod.ducksdelights.item.ModPotions;
+import lod.ducksdelights.item.*;
 import lod.ducksdelights.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
@@ -30,6 +26,7 @@ public class DucksDelights implements ModInitializer {
 		ModFoodComponents.initialize();
 		ModConsumableComponents.initialize();
 		ModPotions.registerPotions();
+		ModArmorMaterials.initialize();
 
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.AWKWARD, ModItems.MOTE_OF_CREATION, ModPotions.HEALTH_BOOST_POTION);

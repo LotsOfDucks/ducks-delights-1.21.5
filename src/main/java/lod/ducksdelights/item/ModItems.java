@@ -1,18 +1,26 @@
 package lod.ducksdelights.item;
 
+import lod.ducksdelights.DucksDelights;
 import lod.ducksdelights.block.ModBlocks;
 import lod.ducksdelights.item.custom.HauntedBucketItem;
 import lod.ducksdelights.item.custom.InfiniteBucketItem;
 import net.minecraft.block.Block;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.DamageResistantComponent;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -39,6 +47,11 @@ public final class ModItems {
     public static final Item HAUNTED_METAL_SCRAP = register("haunted_metal_scrap", Item::new, new Item.Settings());
     public static final Item HAUNTED_METAL_SHEETS = register("haunted_metal_sheets", Item::new, new Item.Settings());
     public static final Item HAUNTED_STEEL_INGOT = register("haunted_steel_ingot", Item::new, new Item.Settings());
+    public static final Item HAUNTED_STEEL_HELMET = register("haunted_steel_helmet", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.HELMET).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_head"), 2, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.HEAD)).build()));
+    public static final Item HAUNTED_STEEL_CHESTPLATE = register("haunted_steel_chestplate", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.CHESTPLATE).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_chest"), 3, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.CHEST)).build()));
+    public static final Item HAUNTED_STEEL_LEGGINGS = register("haunted_steel_leggings", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.LEGGINGS).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_legs"), 2, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.LEGS)).build()));
+    public static final Item HAUNTED_STEEL_BOOTS = register("haunted_steel_boots", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.BOOTS).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_feet"), 1, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.FEET)).build()));
+
     public static final Item HAUNTED_STEEL_BUCKET = register("haunted_steel_bucket", createHauntedBucketItem(Fluids.EMPTY), new Item.Settings().maxCount(16));
     public static final Item HAUNTED_STEEL_WATER_BUCKET = register("haunted_steel_water_bucket", createHauntedBucketItem(Fluids.WATER), new Item.Settings().maxCount(16));
     public static final Item HAUNTED_STEEL_LAVA_BUCKET = register("haunted_steel_lava_bucket", createHauntedBucketItem(Fluids.LAVA), new Item.Settings().maxCount(16));

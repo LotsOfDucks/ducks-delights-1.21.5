@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ducksdelights:mote_of_creation",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ducksdelights:haunted_metal_scrap",
+          "weight": 65
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 25
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:blocks/spawner"
+}

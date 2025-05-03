@@ -21,11 +21,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SCULK_SPEAKER);
                         entries.add(ModBlocks.MOON_PHASE_DETECTOR);
                         entries.add(ModBlocks.DEMON_CORE);
-                        entries.add(ModItems.HAUNTED_STEEL_BUCKET);
-                        entries.add(ModItems.HAUNTED_STEEL_WATER_BUCKET);
-                        entries.add(ModItems.HAUNTED_STEEL_LAVA_BUCKET);
-                        entries.add(ModItems.OVERFLOWING_LAVA_BUCKET);
-                        entries.add(ModItems.OVERFLOWING_WATER_BUCKET);
                     }).build());
 
     public static final ItemGroup DUCKSDELIGHTS_MATERIALS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -39,6 +34,23 @@ public class ModItemGroups {
                         entries.add(ModItems.HAUNTED_METAL_SHEETS);
                         entries.add(ModItems.HAUNTED_STEEL_INGOT);
                         entries.add(ModBlocks.HAUNTED_STEEL_BLOCK);
+                    }).build());
+
+    public static final ItemGroup DUCKSDELIGHTS_TOOLSANDEQUIP_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(DucksDelights.MOD_ID, "ducksdelights_toolsandequip"),
+            FabricItemGroup.builder()
+                    .icon(() -> new ItemStack(ModItems.HAUNTED_STEEL_INGOT))
+                    .displayName(Text.translatable("itemgroup.ducksdelights.toolsandequip"))
+                    .entries((displayContext, entries) -> {
+                        entries.add(ModItems.HAUNTED_STEEL_HELMET);
+                        entries.add(ModItems.HAUNTED_STEEL_CHESTPLATE);
+                        entries.add(ModItems.HAUNTED_STEEL_LEGGINGS);
+                        entries.add(ModItems.HAUNTED_STEEL_BOOTS);
+                        entries.add(ModItems.HAUNTED_STEEL_BUCKET);
+                        entries.add(ModItems.HAUNTED_STEEL_WATER_BUCKET);
+                        entries.add(ModItems.HAUNTED_STEEL_LAVA_BUCKET);
+                        entries.add(ModItems.OVERFLOWING_WATER_BUCKET);
+                        entries.add(ModItems.OVERFLOWING_LAVA_BUCKET);
                     }).build());
 
     public static final ItemGroup DUCKSDELIGHTS_FOOD_GROUP = Registry.register(Registries.ITEM_GROUP,

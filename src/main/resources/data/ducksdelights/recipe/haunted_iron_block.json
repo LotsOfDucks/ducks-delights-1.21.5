@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": [
+        "nnn",
+        "nnn",
+        "nnn"
+    ],
+    "key": {
+        "n": "ducksdelights:haunted_steel_ingot"
+    },
+    "result": {
+        "id": "ducksdelights:haunted_steel_block",
+        "count": 1
+    }
+}

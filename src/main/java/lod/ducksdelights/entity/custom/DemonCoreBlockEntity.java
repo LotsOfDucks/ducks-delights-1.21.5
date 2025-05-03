@@ -140,7 +140,7 @@ public class DemonCoreBlockEntity extends BlockEntity {
                 Vec3d vec3d5 = new Vec3d(pos.toCenterPos().getX(), pos.toCenterPos().getY(), pos.toCenterPos().add(-0.51).getZ());
                 float q = calculateReceivedDamage(world, vec3d, vec3d1, vec3d2, vec3d3, vec3d4, vec3d5, livingEntity, pos, val);
                 if (q == 1) {
-                    if (livingEntity.isPlayer() && livingEntity.age <= 200) {
+                    if (livingEntity.isPlayer() && livingEntity.age <= 200 && !livingEntity.isInCreativeMode()) {
                         return;
                     } else {
                         applyDamage(world, pos, livingEntity);

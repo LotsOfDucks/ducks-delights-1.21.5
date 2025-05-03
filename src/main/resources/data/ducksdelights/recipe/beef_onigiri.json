@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:cooked_beef",
+    "minecraft:dried_kelp",
+    "ducksdelights:white_rice"
+  ],
+  "result": {
+    "id": "ducksdelights:beef_onigiri",
+    "count": 1
+  }
+}
