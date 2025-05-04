@@ -27,6 +27,7 @@ public class DucksDelights implements ModInitializer {
 		ModConsumableComponents.initialize();
 		ModPotions.registerPotions();
 		ModArmorMaterials.initialize();
+		ModToolMaterials.initialize();
 
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.AWKWARD, ModItems.MOTE_OF_CREATION, ModPotions.HEALTH_BOOST_POTION);

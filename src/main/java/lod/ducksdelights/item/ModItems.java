@@ -14,9 +14,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -52,6 +50,12 @@ public final class ModItems {
     public static final Item HAUNTED_STEEL_LEGGINGS = register("haunted_steel_leggings", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.LEGGINGS).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_legs"), 2, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.LEGS)).build()));
     public static final Item HAUNTED_STEEL_BOOTS = register("haunted_steel_boots", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.BOOTS).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_feet"), 1, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.FEET)).build()));
 
+    public static final Item HAUNTED_STEEL_SWORD = register("haunted_steel_sword", Item::new, new Item.Settings().sword(ModToolMaterials.HAUNTED_STEEL_MATERIAL, 3.5F, -2.4F));
+    public static final Item HAUNTED_STEEL_SHOVEL = registerTool("haunted_steel_shovel", (settings) -> new ShovelItem(ModToolMaterials.HAUNTED_STEEL_MATERIAL, 2.0F, -3.0F, settings));
+    public static final Item HAUNTED_STEEL_PICKAXE = register("haunted_steel_pickaxe", Item::new, new Item.Settings().pickaxe(ModToolMaterials.HAUNTED_STEEL_MATERIAL, 1.5F, -2.8F));
+    public static final Item HAUNTED_STEEL_AXE = registerTool("haunted_steel_axe", (settings) -> new AxeItem(ModToolMaterials.HAUNTED_STEEL_MATERIAL, 6.5F, -3.0F, settings));
+    public static final Item HAUNTED_STEEL_HOE = registerTool("haunted_steel_hoe", (settings) -> new HoeItem(ModToolMaterials.HAUNTED_STEEL_MATERIAL, -2.0F, -0.5F, settings));
+
     public static final Item HAUNTED_STEEL_BUCKET = register("haunted_steel_bucket", createHauntedBucketItem(Fluids.EMPTY), new Item.Settings().maxCount(16));
     public static final Item HAUNTED_STEEL_WATER_BUCKET = register("haunted_steel_water_bucket", createHauntedBucketItem(Fluids.WATER), new Item.Settings().maxCount(16));
     public static final Item HAUNTED_STEEL_LAVA_BUCKET = register("haunted_steel_lava_bucket", createHauntedBucketItem(Fluids.LAVA), new Item.Settings().maxCount(16));
@@ -76,6 +80,10 @@ public final class ModItems {
     public static Item register(String path, Function<Item.Settings, Item> factory, Item.Settings settings) {
         final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of("ducksdelights", path));
         return Items.register(registryKey, factory, settings);
+    }
+    public static Item registerTool(String path, Function<Item.Settings, Item> factory) {
+        final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of("ducksdelights", path));
+        return Items.register(registryKey, factory);
     }
 
     public static void initialize() {

@@ -42,6 +42,11 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.HAUNTED_STEEL_INGOT))
                     .displayName(Text.translatable("itemgroup.ducksdelights.toolsandequip"))
                     .entries((displayContext, entries) -> {
+                        entries.add(ModItems.HAUNTED_STEEL_SHOVEL);
+                        entries.add(ModItems.HAUNTED_STEEL_PICKAXE);
+                        entries.add(ModItems.HAUNTED_STEEL_AXE);
+                        entries.add(ModItems.HAUNTED_STEEL_HOE);
+                        entries.add(ModItems.HAUNTED_STEEL_SWORD);
                         entries.add(ModItems.HAUNTED_STEEL_HELMET);
                         entries.add(ModItems.HAUNTED_STEEL_CHESTPLATE);
                         entries.add(ModItems.HAUNTED_STEEL_LEGGINGS);
