@@ -9,12 +9,15 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.DamageResistantComponent;
+import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.ArmorMaterial;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -41,14 +44,23 @@ public final class ModItems {
         return (settings) -> new InfiniteBucketItem(fluid, settings.useItemPrefixedTranslationKey());
     }
 
+    private static Function<Item.Settings, Item> createHauntedArmor(ArmorMaterial material, RegistryEntry<EntityAttribute> attribute, String attributeName, Integer value, EntityAttributeModifier.Operation operation, AttributeModifierSlot slot ,EquipmentType type) {
+        return (settings) -> new Item(settings.maxDamage(type.getMaxDamage(material.durability()))
+                .attributeModifiers(material.createAttributeModifiers(type).with(attribute, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, attributeName), value, operation), slot))
+                .enchantable(material.enchantmentValue())
+                .component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(type.getEquipmentSlot()).equipSound(material.equipSound()).model(material.assetId()).build())
+                .repairable(material.repairIngredient()));
+    }
+
     public static final Item MOTE_OF_CREATION = register("mote_of_creation", Item::new, new Item.Settings().rarity(Rarity.UNCOMMON).component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_EXPLOSION)));
     public static final Item HAUNTED_METAL_SCRAP = register("haunted_metal_scrap", Item::new, new Item.Settings());
     public static final Item HAUNTED_METAL_SHEETS = register("haunted_metal_sheets", Item::new, new Item.Settings());
     public static final Item HAUNTED_STEEL_INGOT = register("haunted_steel_ingot", Item::new, new Item.Settings());
-    public static final Item HAUNTED_STEEL_HELMET = register("haunted_steel_helmet", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.HELMET).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_head"), 2, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.HEAD)).build()));
-    public static final Item HAUNTED_STEEL_CHESTPLATE = register("haunted_steel_chestplate", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.CHESTPLATE).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_chest"), 3, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.CHEST)).build()));
-    public static final Item HAUNTED_STEEL_LEGGINGS = register("haunted_steel_leggings", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.LEGGINGS).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_legs"), 2, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.LEGS)).build()));
-    public static final Item HAUNTED_STEEL_BOOTS = register("haunted_steel_boots", Item::new, new Item.Settings().armor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EquipmentType.BOOTS).attributeModifiers(AttributeModifiersComponent.builder().add(EntityAttributes.MAX_HEALTH, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, "haunted_health_boost_feet"), 1, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.FEET)).build()));
+
+    public static final Item HAUNTED_STEEL_HELMET = register("haunted_steel_helmet", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_head", 2, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.HEAD), EquipmentType.HELMET), new Item.Settings());
+    public static final Item HAUNTED_STEEL_CHESTPLATE = register("haunted_steel_chestplate", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_chest", 3, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.CHEST), EquipmentType.CHESTPLATE), new Item.Settings());
+    public static final Item HAUNTED_STEEL_LEGGINGS = register("haunted_steel_leggings", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_legs", 2, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.LEGS), EquipmentType.LEGGINGS), new Item.Settings());
+    public static final Item HAUNTED_STEEL_BOOTS = register("haunted_steel_boots", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_feet", 1, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.FEET), EquipmentType.BOOTS), new Item.Settings());
 
     public static final Item HAUNTED_STEEL_SWORD = register("haunted_steel_sword", Item::new, new Item.Settings().sword(ModToolMaterials.HAUNTED_STEEL_MATERIAL, 3.5F, -2.4F));
     public static final Item HAUNTED_STEEL_SHOVEL = registerTool("haunted_steel_shovel", (settings) -> new ShovelItem(ModToolMaterials.HAUNTED_STEEL_MATERIAL, 2.0F, -3.0F, settings));

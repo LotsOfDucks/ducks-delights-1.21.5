@@ -26,12 +26,20 @@
   "item.ducksdelights.haunted_metal_scrap": "Haunted Metal Scrap",
   "item.ducksdelights.haunted_metal_sheets": "Haunted Metal Sheets",
   "item.ducksdelights.haunted_steel_ingot": "Haunted Steel Ingot",
+  "item.ducksdelights.haunted_steel_bucket": "Haunted Steel Bucket",
+
+  "item.ducksdelights.haunted_steel_sword": "Haunted Steel Sword",
+  "item.ducksdelights.haunted_steel_pickaxe": "Haunted Steel Pickaxe",
+  "item.ducksdelights.haunted_steel_axe": "Haunted Steel Axe",
+  "item.ducksdelights.haunted_steel_shovel": "Haunted Steel Shovel",
+  "item.ducksdelights.haunted_steel_hoe": "Haunted Steel hoe",
+
   "item.ducksdelights.haunted_steel_helmet": "Haunted Steel Helmet",
   "item.ducksdelights.haunted_steel_chestplate": "Haunted Steel Chestplate",
   "item.ducksdelights.haunted_steel_leggings": "Haunted Steel Leggings",
   "item.ducksdelights.haunted_steel_boots": "Haunted Steel Boots",
   "item.ducksdelights.haunted_steel_block": "Block of Haunted Steel",
-  "item.ducksdelights.haunted_steel_bucket": "Haunted Steel Bucket",
+
   "item.ducksdelights.haunted_steel_water_bucket": "Haunted Steel Water Bucket",
   "item.ducksdelights.haunted_steel_lava_bucket": "Haunted Steel Lava Bucket",
   "item.ducksdelights.overflowing_water_bucket": "Overflowing Water Bucket",

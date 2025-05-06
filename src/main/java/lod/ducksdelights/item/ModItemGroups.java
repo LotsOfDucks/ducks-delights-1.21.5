@@ -39,7 +39,7 @@ public class ModItemGroups {
     public static final ItemGroup DUCKSDELIGHTS_TOOLSANDEQUIP_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(DucksDelights.MOD_ID, "ducksdelights_toolsandequip"),
             FabricItemGroup.builder()
-                    .icon(() -> new ItemStack(ModItems.HAUNTED_STEEL_INGOT))
+                    .icon(() -> new ItemStack(ModItems.HAUNTED_STEEL_PICKAXE))
                     .displayName(Text.translatable("itemgroup.ducksdelights.toolsandequip"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.HAUNTED_STEEL_SHOVEL);
