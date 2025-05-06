@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ducksdelights:haunted_iron_block"
+          "name": "ducksdelights:haunted_steel_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "ducksdelights:blocks/haunted_iron_block"
+  "random_sequence": "ducksdelights:blocks/haunted_steel_block"
 }
