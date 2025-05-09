@@ -4,6 +4,10 @@
   "itemgroup.ducksdelights.materials": "Ducks' Delights Materials",
   "itemgroup.ducksdelights.food": "Ducks' Delights Food",
 
+  "tag.item.ducksdelights.item/onigiri": "Onigiri",
+  "tag.item.ducksdelights.item/haunted_tool_materials": "Haunted Tool Materials",
+  "tag.item.ducksdelights.item/repairs_haunted_armor": "Repairs Haunted Armor",
+
   "item.ducksdelights.sculk_speaker": "Sculk Speaker",
   "item.ducksdelights.demon_core": "Demon Core",
   "item.ducksdelights.moon_phase_detector": "Moon Phase Detector",
