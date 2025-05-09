@@ -1,0 +1,46 @@
+{
+  "parent": "ducksdelights:ducksdelights/find_haunted_metal_scrap",
+  "criteria": {
+    "haunted_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ducksdelights:haunted_steel_helmet"
+          },
+          {
+            "items": "ducksdelights:haunted_steel_chestplate"
+          },
+          {
+            "items": "ducksdelights:haunted_steel_leggings"
+          },
+          {
+            "items": "ducksdelights:haunted_steel_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ducksdelights.haunted_steel_armor.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "ducksdelights:haunted_steel_chestplate"
+    },
+    "title": {
+      "translate": "advancements.ducksdelights.haunted_steel_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "haunted_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

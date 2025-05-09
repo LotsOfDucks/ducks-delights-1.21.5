@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "start": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "ducksdelights:block/haunted_steel_block",
+    "description": {
+      "translate": "advancements.ducksdelights.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ducksdelights:mote_of_creation"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.ducksdelights.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "start"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

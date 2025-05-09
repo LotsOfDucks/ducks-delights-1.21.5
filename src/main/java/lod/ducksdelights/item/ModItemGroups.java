@@ -69,6 +69,7 @@ public class ModItemGroups {
                         entries.add(ModItems.RAW_GOLDEN_RICE);
                         entries.add(ModItems.WHITE_RICE);
                         entries.add(ModItems.GOLDEN_RICE);
+                        entries.add(ModItems.ONIGIRI);
                         entries.add(ModItems.CHICKEN_ONIGIRI);
                         entries.add(ModItems.PORK_ONIGIRI);
                         entries.add(ModItems.BEEF_ONIGIRI);

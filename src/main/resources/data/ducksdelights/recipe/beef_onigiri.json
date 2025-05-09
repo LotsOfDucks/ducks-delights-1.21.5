@@ -5,6 +5,7 @@
     "minecraft:dried_kelp",
     "ducksdelights:white_rice"
   ],
+  "group": "onigiri",
   "result": {
     "id": "ducksdelights:beef_onigiri",
     "count": 1

@@ -65,5 +65,24 @@
   "sounds.ducksdelights.demon_core_tink": "Demon Core Opens/Closes",
 
   "death.attack.fission": "%1$s was overcome by radiation.",
-  "death.attack.fission.player": "%1$s tried to become the Hulk in order to beat %2$s."
+  "death.attack.fission.player": "%1$s tried to become the Hulk in order to beat %2$s.",
+
+  "advancements.ducksdelights.root.title": "Ducks' Delights",
+  "advancements.ducksdelights.root.description": "Enjoy LotsOfDucks' random additions",
+  "advancements.ducksdelights.craft_demon_core.title": "Hold onto your screwdrivers",
+  "advancements.ducksdelights.craft_demon_core.description": "Obtain a Demon Core",
+  "advancements.ducksdelights.find_kibblestone.title": "Now that's rock randy",
+  "advancements.ducksdelights.find_kibblestone.description": "Obtain Kibblestone",
+  "advancements.ducksdelights.find_rice.title": "Rice to meet you",
+  "advancements.ducksdelights.find_rice.description": "Find Paddy Rice",
+  "advancements.ducksdelights.find_golden_rice.title": "Gold-Plated Grain",
+  "advancements.ducksdelights.find_golden_rice.description": "Find Golden Rice",
+  "advancements.ducksdelights.craft_onigiri.title": "Nothing beats a Jelly Filled Donut",
+  "advancements.ducksdelights.craft_onigiri.description": "Obtain any kind of Onigiri (Rice Ball)",
+  "advancements.ducksdelights.craft_gilded_onigiri.title": "Oops... we beat it",
+  "advancements.ducksdelights.craft_gilded_onigiri.description": "Obtain a Gilded Onigiri (Rice Ballin')",
+  "advancements.ducksdelights.find_haunted_metal_scrap.title": "Reduce, Re-use, Recycle",
+  "advancements.ducksdelights.find_haunted_metal_scrap.description": "Mine a Monster Spawner and obtain its scrap metal",
+  "advancements.ducksdelights.haunted_steel_armor.title": "This is surely healthy",
+  "advancements.ducksdelights.haunted_steel_armor.description": "Wear a full set of Haunted Steel armor"
 }
