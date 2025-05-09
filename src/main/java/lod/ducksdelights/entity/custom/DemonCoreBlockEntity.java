@@ -5,6 +5,8 @@ import lod.ducksdelights.entity.ModBlockEntityTypes;
 import lod.ducksdelights.entity.damage.ModDamageTypes;
 import lod.ducksdelights.sound.ModSounds;
 import net.fabricmc.loader.impl.lib.sat4j.core.Vec;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LightningEntity;
@@ -19,9 +21,12 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.*;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
+import javax.swing.text.html.BlockView;
 import java.util.List;
 
 public class DemonCoreBlockEntity extends BlockEntity {
@@ -102,9 +107,11 @@ public class DemonCoreBlockEntity extends BlockEntity {
         double blockCenterPosX = blockPos.toCenterPos().getX();
         double blockCenterPosY = blockPos.toCenterPos().getY();
         double blockCenterPosZ = blockPos.toCenterPos().getZ();
-        Long worldTime = world.getTime();
-        Long entityDistance = (long) (Math.clamp(Math.ceil(Math.abs(blockPos.toCenterPos().distanceTo(livingEntity.getPos().add(-1)))), 1, 20));
-        if (worldTime % entityDistance == 0L) {
+        long entityDistance = (long) (Math.clamp(Math.ceil(Math.abs(blockPos.toCenterPos().distanceTo(livingEntity.getPos().add(-1)))), 1, 20));
+        if (world.getDifficulty() == Difficulty.PEACEFUL) {
+            entityDistance = entityDistance * 2;
+        }
+        if (world.getTime() % entityDistance == 0L) {
             if (entityPositionEyes.getX() > blockCenterPosX) {
                 Vec3d eyeVectorX = new Vec3d(blockPos.toCenterPos().add(0.51).getX(), blockPos.toCenterPos().getY(), blockPos.toCenterPos().getZ());
                 boolean eyesX = livingEntity.getWorld().raycast(new RaycastContext(eyeVectorX, entityPositionEyes, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, livingEntity)).getType() == HitResult.Type.BLOCK;
@@ -119,7 +126,7 @@ public class DemonCoreBlockEntity extends BlockEntity {
                 }
             }
             if (entityPositionEyes.getY() > blockCenterPosY) {
-                Vec3d eyeVectorY = new Vec3d(blockPos.toCenterPos().getX(), blockPos.toCenterPos().add(0.51).getY(), blockPos.toCenterPos().getZ());
+                Vec3d eyeVectorY = new Vec3d(blockPos.toCenterPos().getX(), blockPos.toCenterPos().add(0.49).getY(), blockPos.toCenterPos().getZ());
                 boolean eyesY = livingEntity.getWorld().raycast(new RaycastContext(eyeVectorY, entityPositionEyes, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, livingEntity)).getType() == HitResult.Type.BLOCK;
                 if (!eyesY) {
                     return true;
@@ -158,7 +165,7 @@ public class DemonCoreBlockEntity extends BlockEntity {
                 }
             }
             if (entityPositionFeet.getY() > blockCenterPosY) {
-                Vec3d footVectorY = new Vec3d(blockPos.toCenterPos().getX(), blockPos.toCenterPos().add(0.51).getY(), blockPos.toCenterPos().getZ());
+                Vec3d footVectorY = new Vec3d(blockPos.toCenterPos().getX(), blockPos.toCenterPos().add(0.49).getY(), blockPos.toCenterPos().getZ());
                 boolean footY = livingEntity.getWorld().raycast(new RaycastContext(footVectorY, entityPositionFeet, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, livingEntity)).getType() == HitResult.Type.BLOCK;
                 if (!footY) {
                     return true;
