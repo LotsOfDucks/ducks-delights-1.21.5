@@ -2,13 +2,13 @@
     "type": "minecraft:crafting_shaped",
     "category": "redstone",
     "pattern": [
-        "nnn",
-        "nHn",
-        "nnn"
+        "###",
+        "#$#",
+        "###"
     ],
     "key": {
-        "n": "minecraft:netherite_ingot",
-        "H": "minecraft:heavy_core"
+        "#": "minecraft:netherite_ingot",
+        "$": "minecraft:heavy_core"
     },
     "result": {
         "id": "ducksdelights:demon_core",

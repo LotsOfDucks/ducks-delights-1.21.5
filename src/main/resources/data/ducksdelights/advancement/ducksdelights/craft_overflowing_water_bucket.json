@@ -14,7 +14,7 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.ducksdelights.1craft_overflowing_water_bucket.description"
+      "translate": "advancements.ducksdelights.craft_overflowing_water_bucket.description"
     },
     "icon": {
       "count": 1,
