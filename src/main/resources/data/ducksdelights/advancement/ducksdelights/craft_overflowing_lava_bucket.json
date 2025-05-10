@@ -1,0 +1,37 @@
+{
+  "parent": "ducksdelights:ducksdelights/craft_overflowing_water_bucket",
+  "criteria": {
+    "overflowing_lava_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ducksdelights:overflowing_lava_bucket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ducksdelights.craft_overflowing_lava_bucket.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ducksdelights:overflowing_lava_bucket"
+    },
+    "frame": "challenge",
+    "title": {
+      "translate": "advancements.ducksdelights.craft_overflowing_lava_bucket.title"
+    }
+  },
+  "requirements": [
+    [
+      "overflowing_lava_bucket"
+    ]
+  ],
+  "rewards": {
+    "experience": 20
+  },
+  "sends_telemetry_event": true
+}

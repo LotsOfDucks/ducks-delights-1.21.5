@@ -1,0 +1,33 @@
+{
+  "parent": "ducksdelights:ducksdelights/root",
+  "criteria": {
+    "haunted_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ducksdelights:haunted_steel_bucket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ducksdelights.craft_haunted_bucket.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ducksdelights:haunted_steel_bucket"
+    },
+    "title": {
+      "translate": "advancements.ducksdelights.craft_haunted_bucket.title"
+    }
+  },
+  "requirements": [
+    [
+      "haunted_bucket"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

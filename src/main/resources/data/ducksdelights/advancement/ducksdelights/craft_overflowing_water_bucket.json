@@ -1,0 +1,33 @@
+{
+  "parent": "ducksdelights:ducksdelights/craft_haunted_bucket",
+  "criteria": {
+    "overflowing_water_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ducksdelights:overflowing_water_bucket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ducksdelights.1craft_overflowing_water_bucket.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ducksdelights:overflowing_water_bucket"
+    },
+    "title": {
+      "translate": "advancements.ducksdelights.craft_overflowing_water_bucket.title"
+    }
+  },
+  "requirements": [
+    [
+      "overflowing_water_bucket"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

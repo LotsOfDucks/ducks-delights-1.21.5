@@ -14,6 +14,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 import java.util.function.Function;
 
@@ -27,6 +28,20 @@ public class ModBlocks {
            RegistryKey<Item> itemKey = keyOfItem(name);
 
             BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
+            Registry.register(Registries.ITEM, itemKey, blockItem);
+        }
+
+        return Registry.register(Registries.BLOCK, blockKey, block);
+    }
+
+    private static Block registerRare(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
+        RegistryKey<Block> blockKey = keyOfBlock(name);
+        Block block = blockFactory.apply(settings.registryKey(blockKey));
+
+        if (shouldRegisterItem) {
+            RegistryKey<Item> itemKey = keyOfItem(name);
+
+            BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey).rarity(Rarity.RARE));
             Registry.register(Registries.ITEM, itemKey, blockItem);
         }
 
@@ -48,7 +63,7 @@ public class ModBlocks {
             true
     );
 
-    public static final Block DEMON_CORE = register(
+    public static final Block DEMON_CORE = registerRare(
             "demon_core",
             DemonCoreBlock::new,
             AbstractBlock.Settings.create().mapColor(MapColor.BLACK).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE).luminance((state) -> 3).emissiveLighting((state, world, pos) -> state.get(DemonCoreBlock.POWERED)),

@@ -1,0 +1,54 @@
+{
+  "parent": "ducksdelights:ducksdelights/find_rice",
+  "criteria": {
+    "paddy": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "minecraft:farmland"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "minecraft:wooden_shovel",
+                "minecraft:golden_shovel",
+                "minecraft:stone_shovel",
+                "minecraft:iron_shovel",
+                "minecraft:diamond_shovel",
+                "minecraft:netherite_shovel",
+                "ducksdelights:haunted_steel_shovel"
+              ]
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ducksdelights.make_paddy_farmland.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ducksdelights:paddy_farmland"
+    },
+    "title": {
+      "translate": "advancements.ducksdelights.make_paddy_farmland.title"
+    }
+  },
+  "requirements": [
+    [
+      "paddy"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
