@@ -12,6 +12,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -51,10 +52,14 @@ public class RiceCropBlock extends CropBlock  {
      protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (world.getBaseLightLevel(pos, 0) >= 9) {
             int i = this.getAge(state);
+            int chance = 5000;
+            if (world.getBlockState(pos.offset(Direction.DOWN, 2)).isOf(Blocks.GOLD_BLOCK)) {
+                chance /= 2;
+            }
             if (i < this.getMaxAge()) {
                 float f = getAvailableMoisture(this, world, pos);
                 if (random.nextInt((int)(25.0F / f) + 1) == 0) {
-                    if (i == 5 && random.nextInt(4999) == 0) {
+                    if (i == 5 && random.nextInt(chance) == 0) {
                         world.setBlockState(pos, this.withAge(i + 1).with(GOLDEN,true), 2);
                     } else if (state.get(GOLDEN, true)) {
                         world.setBlockState(pos, this.withAge(i + 1).with(GOLDEN,true), 2);
