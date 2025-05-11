@@ -1,5 +1,5 @@
 {
-  "parent": "ducksdelights:ducksdelights/find_golden_rice",
+  "parent": "ducksdelights:ducksdelights/craft_onigiri",
   "criteria": {
     "gilded_onigiri": {
       "conditions": {
