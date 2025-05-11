@@ -35,6 +35,7 @@ public class DemonCoreBlock extends BlockWithEntity implements Waterloggable {
     public static final MapCodec<DemonCoreBlock> CODEC = createCodec(DemonCoreBlock::new);
     public static final BooleanProperty POWERED;
     public static final BooleanProperty WATERLOGGED;
+    public static final BooleanProperty PLAYER_PLACED;
     protected static final VoxelShape UP_SHAPE;
     protected static final VoxelShape LOW_SHAPE;
     protected static final VoxelShape SHAPE;
@@ -46,7 +47,7 @@ public class DemonCoreBlock extends BlockWithEntity implements Waterloggable {
 
     public DemonCoreBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(POWERED, false).with(WATERLOGGED, false).with(FACING, Direction.NORTH));
+        this.setDefaultState(this.stateManager.getDefaultState().with(POWERED, false).with(WATERLOGGED, false).with(PLAYER_PLACED,false).with(FACING, Direction.NORTH));
     }
 
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
@@ -70,7 +71,7 @@ public class DemonCoreBlock extends BlockWithEntity implements Waterloggable {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockPos blockPos = ctx.getBlockPos();
         FluidState fluidState = ctx.getWorld().getFluidState(blockPos);
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER).with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER).with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos())).with(PLAYER_PLACED, true);
     }
 
     protected FluidState getFluidState(BlockState state) {
@@ -106,12 +107,13 @@ public class DemonCoreBlock extends BlockWithEntity implements Waterloggable {
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(POWERED, WATERLOGGED, FACING);
+        builder.add(POWERED, WATERLOGGED, FACING, PLAYER_PLACED);
     }
 
     static {
         POWERED = Properties.POWERED;
         WATERLOGGED = Properties.WATERLOGGED;
+        PLAYER_PLACED = BooleanProperty.of("player_placed");
         LOW_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0);
         UP_SHAPE = Block.createCuboidShape(1.0, 8.0, 1.0, 15.0, 14.0, 15.0);
         SHAPE = VoxelShapes.union(UP_SHAPE, LOW_SHAPE);

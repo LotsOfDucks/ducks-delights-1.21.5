@@ -3,6 +3,15 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "ducksdelights:demon_core",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "player_placed": "true"
+          }
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
