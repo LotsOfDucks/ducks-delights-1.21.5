@@ -77,7 +77,7 @@ public final class ModItems {
     public static final Item KIBBLESTONE = register("kibblestone", Item::new, new Item.Settings().food(ModFoodComponents.KIBBLESTONE, ModConsumableComponents.KIBBLESTONE));
 
     public static final Item RAW_RICE = register("raw_rice", createBlockItemWithUniqueName(ModBlocks.RICE_CROP), new Item.Settings());
-    public static final Item RAW_GOLDEN_RICE = register("raw_golden_rice", createBlockItemWithUniqueName(ModBlocks.GOLDEN_RICE_CROP), new Item.Settings());
+    public static final Item RAW_GOLDEN_RICE = register("raw_golden_rice", Item::new ,new Item.Settings());
     public static final Item WHITE_RICE = register("white_rice", Item::new, new Item.Settings().recipeRemainder(Items.BOWL).food(ModFoodComponents.WHITE_RICE, ModConsumableComponents.WHITE_RICE).useRemainder(Items.BOWL));
     public static final Item GOLDEN_RICE = register("golden_rice", Item::new, new Item.Settings().recipeRemainder(Items.BOWL).food(ModFoodComponents.GOLDEN_RICE, ModConsumableComponents.GOLDEN_RICE).useRemainder(Items.BOWL));
     public static final Item ONIGIRI = register("onigiri", Item::new, new Item.Settings().food(ModFoodComponents.ONIGIRI));

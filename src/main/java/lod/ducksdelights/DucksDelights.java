@@ -1,6 +1,7 @@
 package lod.ducksdelights;
 
 import lod.ducksdelights.block.ModBlocks;
+import lod.ducksdelights.block.ModLootTableModifiers;
 import lod.ducksdelights.entity.ModBlockEntityTypes;
 import lod.ducksdelights.item.*;
 import lod.ducksdelights.sound.ModSounds;

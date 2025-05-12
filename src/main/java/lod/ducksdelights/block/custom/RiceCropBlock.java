@@ -51,24 +51,33 @@ public class RiceCropBlock extends CropBlock  {
 
      protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (world.getBaseLightLevel(pos, 0) >= 9) {
-            int i = this.getAge(state);
-            int chance = 5000;
-            if (world.getBlockState(pos.offset(Direction.DOWN, 2)).isOf(Blocks.GOLD_BLOCK)) {
-                chance /= 2;
-            }
-            if (i < this.getMaxAge()) {
+            int age = this.getAge(state);
+            if (age < this.getMaxAge()) {
                 float f = getAvailableMoisture(this, world, pos);
+                int chance = getAvailableGold(world, pos);
                 if (random.nextInt((int)(25.0F / f) + 1) == 0) {
-                    if (i == 5 && random.nextInt(chance) == 0) {
-                        world.setBlockState(pos, this.withAge(i + 1).with(GOLDEN,true), 2);
+                    if (age == 5 && random.nextInt(chance) == 0) {
+                        world.setBlockState(pos, this.withAge(age + 1).with(GOLDEN,true), 2);
                     } else if (state.get(GOLDEN, true)) {
-                        world.setBlockState(pos, this.withAge(i + 1).with(GOLDEN,true), 2);
+                        world.setBlockState(pos, this.withAge(age + 1).with(GOLDEN,true), 2);
                     } else {
-                        world.setBlockState(pos, this.withAge(i + 1), 2);
+                        world.setBlockState(pos, this.withAge(age + 1), 2);
                     }
                 }
             }
         }
+    }
+
+    protected static int getAvailableGold(BlockView world, BlockPos pos) {
+        int baseChance = 5000;
+        int gold = 1;
+        for (int below = 2; below <= 7; ++below) {
+            BlockState getGold = world.getBlockState(pos.offset(Direction.DOWN, below));
+            if (getGold.isOf(Blocks.GOLD_BLOCK) || getGold.isOf(Blocks.GOLD_BLOCK)) {
+                gold *= 3;
+            }
+        }
+        return baseChance / gold;
     }
 
     protected static float getAvailableMoisture(Block block, BlockView world, BlockPos pos) {
