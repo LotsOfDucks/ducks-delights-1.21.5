@@ -69,9 +69,11 @@ public final class ModItems {
     }
 
     public static final Item MOTE_OF_CREATION = register("mote_of_creation", Item::new, new Item.Settings().rarity(Rarity.UNCOMMON).component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_EXPLOSION)));
+    public static final Item MOTE_OF_DESTRUCTION = register("mote_of_destruction", Item::new, new Item.Settings().rarity(Rarity.RARE).component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_EXPLOSION)));
     public static final Item HAUNTED_METAL_SCRAP = register("haunted_metal_scrap", Item::new, new Item.Settings());
     public static final Item HAUNTED_METAL_SHEETS = register("haunted_metal_sheets", Item::new, new Item.Settings());
     public static final Item HAUNTED_STEEL_INGOT = register("haunted_steel_ingot", Item::new, new Item.Settings());
+    public static final Item MOTE_UPGRADE_TEMPLATE = register("mote_upgrade_template", ModSmithingTemplateItems::createMoteUpgrade, (new Item.Settings()).rarity(Rarity.RARE));
 
     public static final Item HAUNTED_STEEL_HELMET = register("haunted_steel_helmet", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_head", 2, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.HEAD), EquipmentType.HELMET), new Item.Settings());
     public static final Item HAUNTED_STEEL_CHESTPLATE = register("haunted_steel_chestplate", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_chest", 3, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.CHEST), EquipmentType.CHESTPLATE), new Item.Settings());

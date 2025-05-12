@@ -30,6 +30,8 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.ducksdelights.materials"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.MOTE_OF_CREATION);
+                        entries.add(ModItems.MOTE_OF_DESTRUCTION);
+                        entries.add(ModItems.MOTE_UPGRADE_TEMPLATE);
                         entries.add(ModItems.HAUNTED_METAL_SCRAP);
                         entries.add(ModItems.HAUNTED_METAL_SHEETS);
                         entries.add(ModItems.HAUNTED_STEEL_INGOT);

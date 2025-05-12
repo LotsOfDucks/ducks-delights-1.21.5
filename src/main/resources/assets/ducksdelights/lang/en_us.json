@@ -27,10 +27,17 @@
   "item.ducksdelights.kibblestone": "Kibblestone",
 
   "item.ducksdelights.mote_of_creation": "Mote Of Creation",
+  "item.ducksdelights.mote_of_destruction": "Mote Of Destruction",
+  "item.ducksdelights.mote_upgrade_template": "Mote Imbuement Template",
   "item.ducksdelights.haunted_metal_scrap": "Haunted Metal Scrap",
   "item.ducksdelights.haunted_metal_sheets": "Haunted Metal Sheets",
   "item.ducksdelights.haunted_steel_ingot": "Haunted Steel Ingot",
   "item.ducksdelights.haunted_steel_bucket": "Haunted Steel Bucket",
+
+  "item.ducksdelights.smithing_template.mote_upgrade.applies_to": "Haunted Steel Equipment",
+  "item.ducksdelights.smithing_template.mote_upgrade.ingredients": "Mote of Creation or Destruction",
+  "item.ducksdelights.smithing_template.mote_upgrade.base_slot_description": "Add Haunted Steel armor, weapon, or tool",
+  "item.ducksdelights.smithing_template.mote_upgrade.additions_slot_description": "Add Mote of Creation or Destruction",
 
   "item.ducksdelights.haunted_steel_sword": "Haunted Steel Sword",
   "item.ducksdelights.haunted_steel_pickaxe": "Haunted Steel Pickaxe",
