@@ -99,6 +99,11 @@ public class DemonCoreBlock extends BlockWithEntity implements Waterloggable {
         if (bl != state.get(POWERED)) {
             world.setBlockState(pos, state.with(POWERED, bl));
             world.playSound(null, pos, ModSounds.DEMON_CORE_TINK, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            if (!state.get(WATERLOGGED)) {
+                world.playSound(null, pos, ModSounds.DEMON_CORE_AMBIENT, SoundCategory.BLOCKS, 4.0F, 1.0F);
+            } else {
+                world.playSound(null, pos, ModSounds.DEMON_CORE_AMBIENT, SoundCategory.BLOCKS, 1.0F, 0.5F);
+            }
         }
     }
 

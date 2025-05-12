@@ -67,17 +67,16 @@ public class DemonCoreBlockEntity extends BlockEntity {
         blockEntity.powered = world.isReceivingRedstonePower(pos);
         blockEntity.waterlogged = world.getBlockState(pos).get(DemonCoreBlock.WATERLOGGED);
         if (blockEntity.powered) {
-            int j = blockEntity.range;
-            int k = pos.getX();
-            int l = pos.getY();
-            int m = pos.getZ();
-            Box box = (new Box(k, l, m, k + 1, l + 1, m + 1)).expand(j + 4).stretch(0.0, 0.0, 0.0);
+            int range = blockEntity.range;
+            int boxX = pos.getX();
+            int boxY = pos.getY();
+            int boxZ = pos.getZ();
+            Box box = (new Box(boxX, boxY, boxZ, boxX + 1, boxY + 1, boxZ + 1)).expand(range + 4);
             List<LivingEntity> list = world.getEntitiesByClass(LivingEntity.class, box, LivingEntity::isMobOrPlayer);
             if (!list.isEmpty()) {
-                irradiateEntities(world, list, pos, j);
+                irradiateEntities(world, list, pos, range);
             }
-            long s = world.getTime();
-            if (s % 40L == 0L) {
+            if (world.getTime() % 40L == 0L) {
                 if (!blockEntity.waterlogged) {
                     world.playSound(null, pos, ModSounds.DEMON_CORE_AMBIENT, SoundCategory.BLOCKS, 4.0F, 1.0F);
                 } else {

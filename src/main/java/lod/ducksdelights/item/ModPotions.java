@@ -13,13 +13,13 @@ import javax.naming.Name;
 
 public class ModPotions {
     public static final RegistryEntry<Potion> HEALTH_BOOST_POTION = registerPotion("health_boost_potion",
-            new Potion("health_boost_potion", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 6000, 1)));
+            new Potion("health_boost_potion", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 6000, 0)));
 
     public static final RegistryEntry<Potion> LONG_HEALTH_BOOST_POTION = registerPotion("long_health_boost_potion",
-            new Potion("long_health_boost_potion", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 9000, 1)));
+            new Potion("long_health_boost_potion", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 9000, 0)));
 
     public static final RegistryEntry<Potion> STRONG_HEALTH_BOOST_POTION = registerPotion("strong_health_boost_potion",
-            new Potion("strong_health_boost_potion", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 6000, 4)));
+            new Potion("strong_health_boost_potion", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 6000, 1)));
 
     private static RegistryEntry<Potion> registerPotion(String name, Potion potion) {
         return Registry.registerReference(Registries.POTION, Identifier.of(DucksDelights.MOD_ID, name), potion);
