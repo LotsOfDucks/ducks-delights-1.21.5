@@ -52,6 +52,22 @@ public final class ModItems {
                 .repairable(material.repairIngredient()));
     }
 
+    private static Function<Item.Settings, Item> createCreationArmor(ArmorMaterial material, RegistryEntry<EntityAttribute> attribute, String attributeName, Integer value, EntityAttributeModifier.Operation operation, AttributeModifierSlot slot ,EquipmentType type) {
+        return (settings) -> new Item(settings.maxDamage(type.getMaxDamage(material.durability()))
+                .attributeModifiers(material.createAttributeModifiers(type).with(attribute, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, attributeName), value, operation), slot))
+                .enchantable(material.enchantmentValue())
+                .component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(type.getEquipmentSlot()).equipSound(material.equipSound()).model(material.assetId()).build())
+                .repairable(material.repairIngredient()));
+    }
+
+    private static Function<Item.Settings, Item> createDestructionArmor(ArmorMaterial material, RegistryEntry<EntityAttribute> attribute, String attributeName, Integer value, EntityAttributeModifier.Operation operation, AttributeModifierSlot slot ,EquipmentType type) {
+        return (settings) -> new Item(settings.maxDamage(type.getMaxDamage(material.durability()))
+                .attributeModifiers(material.createAttributeModifiers(type).with(attribute, new EntityAttributeModifier(Identifier.of(DucksDelights.MOD_ID, attributeName), value, operation), slot))
+                .enchantable(material.enchantmentValue())
+                .component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(type.getEquipmentSlot()).equipSound(material.equipSound()).model(material.assetId()).build())
+                .repairable(material.repairIngredient()));
+    }
+
     public static final Item MOTE_OF_CREATION = register("mote_of_creation", Item::new, new Item.Settings().rarity(Rarity.UNCOMMON).component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_EXPLOSION)));
     public static final Item HAUNTED_METAL_SCRAP = register("haunted_metal_scrap", Item::new, new Item.Settings());
     public static final Item HAUNTED_METAL_SHEETS = register("haunted_metal_sheets", Item::new, new Item.Settings());
@@ -61,6 +77,16 @@ public final class ModItems {
     public static final Item HAUNTED_STEEL_CHESTPLATE = register("haunted_steel_chestplate", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_chest", 3, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.CHEST), EquipmentType.CHESTPLATE), new Item.Settings());
     public static final Item HAUNTED_STEEL_LEGGINGS = register("haunted_steel_leggings", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_legs", 2, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.LEGS), EquipmentType.LEGGINGS), new Item.Settings());
     public static final Item HAUNTED_STEEL_BOOTS = register("haunted_steel_boots", createHauntedArmor(ModArmorMaterials.HAUNTED_STEEL_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_feet", 1, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.FEET), EquipmentType.BOOTS), new Item.Settings());
+
+    //public static final Item CREATION_IMBUED_HELMET = register("creation_imbued_helmet", createHauntedArmor(ModArmorMaterials.CREATION_IMBUED_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_head", 4, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.HEAD), EquipmentType.HELMET), new Item.Settings());
+    //public static final Item CREATION_IMBUED_CHESTPLATE = register("creation_imbued_chestplate", createHauntedArmor(ModArmorMaterials.CREATION_IMBUED_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_chest", 7, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.CHEST), EquipmentType.CHESTPLATE), new Item.Settings());
+    //public static final Item CREATION_IMBUED_LEGGINGS = register("creation_imbued_leggings", createHauntedArmor(ModArmorMaterials.CREATION_IMBUED_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_legs", 6, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.LEGS), EquipmentType.LEGGINGS), new Item.Settings());
+    //public static final Item CREATION_IMBUED_BOOTS = register("creation_imbued_boots", createHauntedArmor(ModArmorMaterials.CREATION_IMBUED_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_feet", 3, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.FEET), EquipmentType.BOOTS), new Item.Settings());
+
+    //public static final Item DESTRUCTION_IMBUED_HELMET = register("destruction_imbued_helmet", createDestructionArmor(ModArmorMaterials.DESTRUCTION_IMBUED_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_head", -2, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.HEAD), EquipmentType.HELMET), new Item.Settings());
+    //public static final Item DESTRUCTION_IMBUED_CHESTPLATE = register("destruction_imbued_chestplate", createDestructionArmor(ModArmorMaterials.DESTRUCTION_IMBUED_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_chest", -3, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.CHEST), EquipmentType.CHESTPLATE), new Item.Settings());
+    //public static final Item DESTRUCTION_IMBUED_LEGGINGS = register("destruction_imbued_leggings", createDestructionArmor(ModArmorMaterials.DESTRUCTION_IMBUED_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_legs", -2, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.LEGS), EquipmentType.LEGGINGS), new Item.Settings());
+    //public static final Item DESTRUCTION_IMBUED_BOOTS = register("destruction_imbued_boots", createDestructionArmor(ModArmorMaterials.DESTRUCTION_IMBUED_MATERIAL, EntityAttributes.MAX_HEALTH, "haunted_health_boost_feet", -1, EntityAttributeModifier.Operation.ADD_VALUE, AttributeModifierSlot.forEquipmentSlot(EquipmentSlot.FEET), EquipmentType.BOOTS), new Item.Settings());
 
     public static final Item HAUNTED_STEEL_SWORD = register("haunted_steel_sword", Item::new, new Item.Settings().sword(ModToolMaterials.HAUNTED_STEEL_MATERIAL, 3.5F, -2.4F));
     public static final Item HAUNTED_STEEL_SHOVEL = registerTool("haunted_steel_shovel", (settings) -> new ShovelItem(ModToolMaterials.HAUNTED_STEEL_MATERIAL, 2.0F, -3.0F, settings));
