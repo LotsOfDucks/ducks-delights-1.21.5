@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cooked_rice"
+      "has_kibblestone"
     ]
   ],
   "rewards": {

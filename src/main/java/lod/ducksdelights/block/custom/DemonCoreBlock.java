@@ -13,6 +13,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -28,6 +29,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.block.WireOrientation;
@@ -95,6 +97,49 @@ public class DemonCoreBlock extends BlockWithEntity implements Waterloggable {
             world.setBlockState(pos, blockState);
             return ActionResult.SUCCESS;
         }
+    }
+
+    protected boolean hasRandomTicks(BlockState state) {
+        return state.get(POWERED);
+    }
+
+    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (world.getGameRules().getBoolean(GameRules.DO_FIRE_TICK)) {
+            if (world.getGameRules().getBoolean(GameRules.ALLOW_FIRE_TICKS_AWAY_FROM_PLAYER) || world.shouldTickBlockAt(pos)) {
+                BlockPos blockPos = pos;
+                for (int j = 0; j < 5; ++j) {
+                    blockPos = blockPos.add(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1);
+                    if (!world.isPosLoaded(blockPos)) {
+                        return;
+                    }
+                    BlockState blockState = world.getBlockState(blockPos);
+                    if (blockState.isAir()) {
+                        if (this.canLightFire(world, blockPos)) {
+                            world.setBlockState(blockPos, AbstractFireBlock.getState(world, blockPos));
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean hasBurnableBlock(WorldView world, BlockPos pos) {
+        return world.isInHeightLimit(pos.getY()) && world.getBlockState(pos).isBurnable();
+    }
+
+    private boolean canLightFire(WorldView world, BlockPos pos) {
+        Direction[] var3 = Direction.values();
+        int var4 = var3.length;
+
+        for(int var5 = 0; var5 < var4; ++var5) {
+            Direction direction = var3[var5];
+            if (this.hasBurnableBlock(world, pos.offset(direction))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public BlockState rotate(BlockState state, BlockRotation rotation) {
