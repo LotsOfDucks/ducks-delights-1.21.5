@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "ducksdelights:creation_imbued"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "ducksdelights:creation_imbued"
+      }
+    ]
+  }
+}

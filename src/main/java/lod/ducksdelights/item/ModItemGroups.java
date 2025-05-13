@@ -53,14 +53,14 @@ public class ModItemGroups {
                         entries.add(ModItems.HAUNTED_STEEL_CHESTPLATE);
                         entries.add(ModItems.HAUNTED_STEEL_LEGGINGS);
                         entries.add(ModItems.HAUNTED_STEEL_BOOTS);
-                        //entries.add(ModItems.CREATION_IMBUED_HELMET);
-                        //entries.add(ModItems.CREATION_IMBUED_CHESTPLATE);
-                        //entries.add(ModItems.CREATION_IMBUED_LEGGINGS);
-                        //entries.add(ModItems.CREATION_IMBUED_BOOTS);
-                        //entries.add(ModItems.DESTRUCTION_IMBUED_HELMET);
-                        //entries.add(ModItems.DESTRUCTION_IMBUED_CHESTPLATE);
-                        //entries.add(ModItems.DESTRUCTION_IMBUED_LEGGINGS);
-                        //entries.add(ModItems.DESTRUCTION_IMBUED_BOOTS);
+                        entries.add(ModItems.CREATION_IMBUED_HELMET);
+                        entries.add(ModItems.CREATION_IMBUED_CHESTPLATE);
+                        entries.add(ModItems.CREATION_IMBUED_LEGGINGS);
+                        entries.add(ModItems.CREATION_IMBUED_BOOTS);
+                        entries.add(ModItems.DESTRUCTION_IMBUED_HELMET);
+                        entries.add(ModItems.DESTRUCTION_IMBUED_CHESTPLATE);
+                        entries.add(ModItems.DESTRUCTION_IMBUED_LEGGINGS);
+                        entries.add(ModItems.DESTRUCTION_IMBUED_BOOTS);
                         entries.add(ModItems.HAUNTED_STEEL_BUCKET);
                         entries.add(ModItems.HAUNTED_STEEL_WATER_BUCKET);
                         entries.add(ModItems.HAUNTED_STEEL_LAVA_BUCKET);
@@ -86,6 +86,23 @@ public class ModItemGroups {
                         entries.add(ModItems.SALMON_ONIGIRI);
                         entries.add(ModItems.GILDED_ONIGIRI);
                         entries.add(ModItems.KIBBLESTONE);
+                        entries.add(ModItems.PLAIN_ROCK_CANDY);
+                        entries.add(ModItems.WHITE_ROCK_CANDY);
+                        entries.add(ModItems.LIGHT_GRAY_ROCK_CANDY);
+                        entries.add(ModItems.GRAY_ROCK_CANDY);
+                        entries.add(ModItems.BLACK_ROCK_CANDY);
+                        entries.add(ModItems.BROWN_ROCK_CANDY);
+                        entries.add(ModItems.RED_ROCK_CANDY);
+                        entries.add(ModItems.ORANGE_ROCK_CANDY);
+                        entries.add(ModItems.YELLOW_ROCK_CANDY);
+                        entries.add(ModItems.LIME_ROCK_CANDY);
+                        entries.add(ModItems.GREEN_ROCK_CANDY);
+                        entries.add(ModItems.CYAN_ROCK_CANDY);
+                        entries.add(ModItems.LIGHT_BLUE_ROCK_CANDY);
+                        entries.add(ModItems.BLUE_ROCK_CANDY);
+                        entries.add(ModItems.PURPLE_ROCK_CANDY);
+                        entries.add(ModItems.MAGENTA_ROCK_CANDY);
+                        entries.add(ModItems.PINK_ROCK_CANDY);
                     }).build());
 
 

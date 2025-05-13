@@ -5,6 +5,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.item.consume.UseAction;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvents;
 
 import java.util.List;
@@ -14,6 +16,7 @@ public class ModConsumableComponents {
     public static final ConsumableComponent GOLDEN_RICE;
     public static final ConsumableComponent GILDED_ONIGIRI;
     public static final ConsumableComponent KIBBLESTONE;
+    public static final ConsumableComponent ROCK_CANDY;
 
 
 
@@ -29,7 +32,8 @@ public class ModConsumableComponents {
     }
 
     static {
-        KIBBLESTONE = food().consumeSeconds(1.2F).build();
+        KIBBLESTONE = food().sound(RegistryEntry.of(SoundEvents.BLOCK_GRAVEL_BREAK)).consumeSeconds(1.2F).build();
+        ROCK_CANDY = food().build();
         WHITE_RICE = food().consumeSeconds(1.2F).build();
         GOLDEN_RICE = food().consumeSeconds(1.2F).build();
         GILDED_ONIGIRI = food().consumeEffect(new ApplyEffectsConsumeEffect(List.of(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 1), new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 1), new StatusEffectInstance(StatusEffects.NIGHT_VISION, 4800, 0)))).build();

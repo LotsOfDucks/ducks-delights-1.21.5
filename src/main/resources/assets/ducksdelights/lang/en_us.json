@@ -25,6 +25,23 @@
   "item.ducksdelights.gilded_onigiri": "Gilded Onigiri",
 
   "item.ducksdelights.kibblestone": "Kibblestone",
+  "item.ducksdelights.plain_rock_candy": "Plain Rock Candy",
+  "item.ducksdelights.white_rock_candy": "White Rock Candy",
+  "item.ducksdelights.light_gray_rock_candy": "Light Gray Rock Candy",
+  "item.ducksdelights.gray_rock_candy": "Gray Rock Candy",
+  "item.ducksdelights.black_rock_candy": "Black Rock Candy",
+  "item.ducksdelights.brown_rock_candy": "Brown Rock Candy",
+  "item.ducksdelights.red_rock_candy": "Red Rock Candy",
+  "item.ducksdelights.orange_rock_candy": "Orange Rock Candy",
+  "item.ducksdelights.yellow_rock_candy": "Yellow Rock Candy",
+  "item.ducksdelights.lime_rock_candy": "Lime Rock Candy",
+  "item.ducksdelights.green_rock_candy": "Green Rock Candy",
+  "item.ducksdelights.cyan_rock_candy": "Cyan Rock Candy",
+  "item.ducksdelights.light_blue_rock_candy": "Light Blue Rock Candy",
+  "item.ducksdelights.blue_rock_candy": "Blue Rock Candy",
+  "item.ducksdelights.purple_rock_candy": "Purple Rock Candy",
+  "item.ducksdelights.magenta_rock_candy": "Magenta Rock Candy",
+  "item.ducksdelights.pink_rock_candy": "Pink Rock Candy",
 
   "item.ducksdelights.mote_of_creation": "Mote Of Creation",
   "item.ducksdelights.mote_of_destruction": "Mote Of Destruction",
@@ -49,7 +66,18 @@
   "item.ducksdelights.haunted_steel_chestplate": "Haunted Steel Chestplate",
   "item.ducksdelights.haunted_steel_leggings": "Haunted Steel Leggings",
   "item.ducksdelights.haunted_steel_boots": "Haunted Steel Boots",
+
   "item.ducksdelights.haunted_steel_block": "Block of Haunted Steel",
+
+  "item.ducksdelights.creation_imbued_helmet": "Creation Imbued Helmet",
+  "item.ducksdelights.creation_imbued_chestplate": "Creation Imbued Chestplate",
+  "item.ducksdelights.creation_imbued_leggings": "Creation Imbued Leggings",
+  "item.ducksdelights.creation_imbued_boots": "Creation Imbued Boots",
+
+  "item.ducksdelights.destruction_imbued_helmet": "Destruction Imbued Helmet",
+  "item.ducksdelights.destruction_imbued_chestplate": "Destruction Imbued Chestplate",
+  "item.ducksdelights.destruction_imbued_leggings": "Destruction Imbued Leggings",
+  "item.ducksdelights.destruction_imbued_boots": "Destruction Imbued Boots",
 
   "item.ducksdelights.haunted_steel_water_bucket": "Haunted Steel Water Bucket",
   "item.ducksdelights.haunted_steel_lava_bucket": "Haunted Steel Lava Bucket",

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "ducksdelights:item/haunted_steel_axe"
+    "layer0": "ducksdelights:item/white_rock_candy"
   }
 }
