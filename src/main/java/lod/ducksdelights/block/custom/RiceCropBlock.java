@@ -113,7 +113,7 @@ public class RiceCropBlock extends CropBlock  {
         if (world.getBlockState(blockPos).isOf(ModBlocks.PADDY_FARMLAND) && !world.getBlockState(blockPos).get(Properties.WATERLOGGED)) {
             f /= 2.0F;
         }
-        return f;
+        return f / 2.0F;
     }
 
     @Override

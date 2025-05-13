@@ -9,6 +9,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -17,8 +18,10 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -59,10 +62,6 @@ public class DemonCoreBlock extends BlockWithEntity implements Waterloggable {
         return validateTicker(type, ModBlockEntityTypes.DEMON_CORE, world.isClient ? DemonCoreBlockEntity::clientTick : DemonCoreBlockEntity::serverTick);
     }
 
-    protected boolean emitsRedstonePower(BlockState state) {
-        return true;
-    }
-
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
@@ -84,6 +83,18 @@ public class DemonCoreBlock extends BlockWithEntity implements Waterloggable {
         }
 
         return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+    }
+
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (!state.get(PLAYER_PLACED)) {
+            return ActionResult.PASS;
+        } else if (world.isReceivingRedstonePower(pos)) {
+            return ActionResult.PASS;
+        } else {
+            BlockState blockState = state.cycle(POWERED);
+            world.setBlockState(pos, blockState);
+            return ActionResult.SUCCESS;
+        }
     }
 
     public BlockState rotate(BlockState state, BlockRotation rotation) {

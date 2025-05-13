@@ -49,7 +49,7 @@ public class DemonCoreBlockEntity extends BlockEntity {
 
     public static void clientTick(World world, BlockPos pos, BlockState state, DemonCoreBlockEntity blockEntity) {
         ++blockEntity.ticks;
-        blockEntity.powered = world.isReceivingRedstonePower(pos);
+        blockEntity.powered = world.getBlockState(pos).get(DemonCoreBlock.POWERED);
         blockEntity.waterlogged = world.getBlockState(pos).get(DemonCoreBlock.WATERLOGGED);
         if (blockEntity.waterlogged && blockEntity.powered) {
             double d = pos.toCenterPos().getX();
@@ -64,7 +64,7 @@ public class DemonCoreBlockEntity extends BlockEntity {
 
     public static void serverTick(World world, BlockPos pos, BlockState state, DemonCoreBlockEntity blockEntity) {
         ++blockEntity.ticks;
-        blockEntity.powered = world.isReceivingRedstonePower(pos);
+        blockEntity.powered = world.getBlockState(pos).get(DemonCoreBlock.POWERED);
         blockEntity.waterlogged = world.getBlockState(pos).get(DemonCoreBlock.WATERLOGGED);
         if (blockEntity.powered) {
             int range = blockEntity.range;

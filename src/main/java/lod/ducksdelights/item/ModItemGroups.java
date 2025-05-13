@@ -30,8 +30,8 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.ducksdelights.materials"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.MOTE_OF_CREATION);
-                        entries.add(ModItems.MOTE_OF_DESTRUCTION);
-                        entries.add(ModItems.MOTE_UPGRADE_TEMPLATE);
+                        //entries.add(ModItems.MOTE_OF_DESTRUCTION);
+                        //entries.add(ModItems.MOTE_UPGRADE_TEMPLATE);
                         entries.add(ModItems.HAUNTED_METAL_SCRAP);
                         entries.add(ModItems.HAUNTED_METAL_SHEETS);
                         entries.add(ModItems.HAUNTED_STEEL_INGOT);
@@ -53,14 +53,14 @@ public class ModItemGroups {
                         entries.add(ModItems.HAUNTED_STEEL_CHESTPLATE);
                         entries.add(ModItems.HAUNTED_STEEL_LEGGINGS);
                         entries.add(ModItems.HAUNTED_STEEL_BOOTS);
-                        entries.add(ModItems.CREATION_IMBUED_HELMET);
-                        entries.add(ModItems.CREATION_IMBUED_CHESTPLATE);
-                        entries.add(ModItems.CREATION_IMBUED_LEGGINGS);
-                        entries.add(ModItems.CREATION_IMBUED_BOOTS);
-                        entries.add(ModItems.DESTRUCTION_IMBUED_HELMET);
-                        entries.add(ModItems.DESTRUCTION_IMBUED_CHESTPLATE);
-                        entries.add(ModItems.DESTRUCTION_IMBUED_LEGGINGS);
-                        entries.add(ModItems.DESTRUCTION_IMBUED_BOOTS);
+                        //entries.add(ModItems.CREATION_IMBUED_HELMET);
+                        //entries.add(ModItems.CREATION_IMBUED_CHESTPLATE);
+                        //entries.add(ModItems.CREATION_IMBUED_LEGGINGS);
+                        //entries.add(ModItems.CREATION_IMBUED_BOOTS);
+                        //entries.add(ModItems.DESTRUCTION_IMBUED_HELMET);
+                        //entries.add(ModItems.DESTRUCTION_IMBUED_CHESTPLATE);
+                        //entries.add(ModItems.DESTRUCTION_IMBUED_LEGGINGS);
+                        //entries.add(ModItems.DESTRUCTION_IMBUED_BOOTS);
                         entries.add(ModItems.HAUNTED_STEEL_BUCKET);
                         entries.add(ModItems.HAUNTED_STEEL_WATER_BUCKET);
                         entries.add(ModItems.HAUNTED_STEEL_LAVA_BUCKET);
